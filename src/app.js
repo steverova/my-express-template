@@ -6,7 +6,7 @@ import errorHandler from "./middleware/errorHandler.js";
 // import "dotenv/config";
 
 const app = express();
-const PORT = 3001
+const PORT = process.env.PORT || 3000;
 app.use(logger("dev"));
 app.use(json());
 app.use(urlencoded({ extended: false }));
