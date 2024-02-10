@@ -7,6 +7,7 @@ import errorHandler from "./middleware/errorHandler.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const nodeVersion = process.version;
 app.use(logger("dev"));
 app.use(json());
 app.use(urlencoded({ extended: false }));
@@ -15,7 +16,7 @@ app.use("/", indexRouter);
 // app.use(errorHandler);
 try {
   app.listen(PORT, () => {
-    console.log(`Server is running in port http://localhost:${PORT}`);
+    console.log(`Server is running in port http://localhost:${PORT} node version ${nodeVersion}`);
   });
 } catch (error) {
   console.error("Error starting the server:", error);
